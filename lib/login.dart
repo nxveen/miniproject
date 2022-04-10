@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:miniproject/facil.dart';
 import 'package:miniproject/main.dart';
+import 'package:miniproject/createaccount.dart';
+import 'package:qr_code_scanner/qr_code_scanner.dart';
 class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -144,7 +146,8 @@ class Login extends StatelessWidget {
                Row(
                    children: [
                      SizedBox(width: w*0.08),
-                     TextButton(onPressed: () {},
+                     TextButton(onPressed: () {Navigator.push(context,
+                       MaterialPageRoute(builder:(context) => Createaccount()),);},
                          child: Text(
                            'Dont Have an Account? Sign Up Now!',
                            style: TextStyle(

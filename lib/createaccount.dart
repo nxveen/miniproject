@@ -58,6 +58,7 @@ class Createaccount extends StatelessWidget {
                   ),
                   child: Center(
                     child: TextField(
+                      style: TextStyle(color: Colors.white),
                       controller: c,
                       decoration:  InputDecoration(
                         border: InputBorder.none,
@@ -94,7 +95,7 @@ class Createaccount extends StatelessWidget {
                   ),
                   child: Center(
                     child: TextField(
-
+                      style: TextStyle(color: Colors.white),
                       decoration:  InputDecoration(
                         border: InputBorder.none,
 
@@ -130,6 +131,7 @@ class Createaccount extends StatelessWidget {
                   ),
                   child: Center(
                     child: TextField(
+                      style: TextStyle(color: Colors.white),
                       controller: d,
                       obscureText: true,
                       decoration:  InputDecoration(
