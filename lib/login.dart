@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:miniproject/facil.dart';
 import 'package:miniproject/main.dart';
 import 'package:miniproject/createaccount.dart';
-import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:miniproject/scan.dart';
 class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -112,7 +112,7 @@ class Login extends StatelessWidget {
                SizedBox(height: h*0.018),
                Center(
                  child: FlatButton(onPressed: () {Navigator.push(context,
-                   MaterialPageRoute(builder:(context) => Facility()),);},
+                   MaterialPageRoute(builder:(context) => QRViewExample()),);},
                    child: Container(
                        height: h*0.08,
                        width: w*0.6,

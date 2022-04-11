@@ -3,6 +3,10 @@ import 'package:miniproject/bikaroo.dart';
 import 'package:miniproject/login.dart';
 import 'package:miniproject/fuel.dart';
 class Facility extends StatelessWidget {
+  final String? text;
+
+  Facility({Key? key,required this.text}
+      ) : super(key: key);
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
