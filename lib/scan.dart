@@ -43,15 +43,14 @@ class _QRViewExampleState extends State<QRViewExample> {
                   if (result != null)
 
                     TextButton(onPressed: () {Navigator.push(context,
-                      MaterialPageRoute(builder:(context) => Facility(text: result!.code)),);},
-                      child: Text(
-                          'Barcode Type: ${describeEnum(result!.format)}   Data: ${ result!.code}'),
+                      MaterialPageRoute(builder:(context) => Facility(text: result!.code ?? "{}")),);},
+                      child: const Text('Continue'),
                     )
 
 
                   else
                     TextButton(onPressed: () {Navigator.push(context,
-                      MaterialPageRoute(builder:(context) => Facility(text: '')),);},child: const Text('Scan a code')),
+                      MaterialPageRoute(builder:(context) => Facility(text: "")),);},child: const Text('Scan a code')),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,

@@ -2,13 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:miniproject/bikaroo.dart';
 import 'package:miniproject/login.dart';
 import 'package:miniproject/fuel.dart';
+import 'package:miniproject/jin.dart';
+import 'dart:convert';
 class Facility extends StatelessWidget {
-  final String? text;
-
+  final String text;
   Facility({Key? key,required this.text}
       ) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
+    var qrJsonData = text;
+    if(qrJsonData != "") {
+      var parsedJson = jsonDecode(qrJsonData);
+      int x = parsedJson.id;
+    }
+    else
+      {
+        int x=0;
+      }
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -79,7 +90,8 @@ class Facility extends StatelessWidget {
               SizedBox(height: h*0.12),
               Center(
                 child: FlatButton(
-                    onPressed: () {},
+                    onPressed: () {Navigator.push(context,
+                      MaterialPageRoute(builder:(context) => Jin()),);},
                     child:Column(
                         children: [
                           Image.asset('assets/vector.png'),
