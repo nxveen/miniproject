@@ -47,6 +47,7 @@ class Fuelamount extends StatelessWidget {
                   ),
                   child: Center(
                     child: TextField(
+                      style: TextStyle(color: Colors.white),
                       decoration:  InputDecoration(
                         border: InputBorder.none,
 

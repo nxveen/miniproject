@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:miniproject/facil.dart';
 import 'package:miniproject/fuel2.dart';
+import 'package:miniproject/repair.dart';
 class Fuel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class Fuel extends StatelessWidget {
     ),
     ),
         FlatButton(onPressed: () {Navigator.push(context,
-          MaterialPageRoute(builder:(context) => Facility()),);},
+          MaterialPageRoute(builder:(context) => Facility(text: '')),);},
           child: Padding(
             padding: EdgeInsets.fromLTRB(h*0.007, h*0.03,0 ,0),
             child: Icon(
@@ -65,7 +66,8 @@ class Fuel extends StatelessWidget {
             ),
             SizedBox(height: h*0.08),
             Center(
-              child: FlatButton(onPressed: () {},
+              child: FlatButton(onPressed: () {Navigator.push(context,
+                MaterialPageRoute(builder:(context) => Repair()),);},
                 child: Container(
                     height: h*0.076,
                     width: w*0.85,
