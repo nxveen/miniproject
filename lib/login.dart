@@ -3,6 +3,7 @@ import 'package:miniproject/facil.dart';
 import 'package:miniproject/main.dart';
 import 'package:miniproject/resources/auth_methods.dart';
 import 'package:miniproject/utils/utils.dart';
+import 'package:miniproject/scan.dart';
 
 class Login extends StatelessWidget {
   TextEditingController d = new TextEditingController();
@@ -132,7 +133,7 @@ class Login extends StatelessWidget {
 
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Facility()),
+                      MaterialPageRoute(builder: (context) => QRViewExample()),
                     );
                   },
                   child: Container(

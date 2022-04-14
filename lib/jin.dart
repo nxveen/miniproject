@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 class Jin extends StatelessWidget {
+  int x=9608565753;
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
@@ -19,7 +20,7 @@ class Jin extends StatelessWidget {
               children:[
                 SizedBox(height: h*0.3),
                 Center(
-                  child: FlatButton(onPressed: ()=> launch("tel://9608565753") ,
+                  child: FlatButton(onPressed: ()=> launch("tel://$x") ,
                     child: Container(
                         height: h*0.076,
                         width: w*0.85,
@@ -38,7 +39,7 @@ class Jin extends StatelessWidget {
                         ),
                         child: Center(
                           child: Text(
-                              'KUNJ  +91 9074038004',
+                              'JOSH  +91 9608565753',
                               style: TextStyle(
                                 fontSize: h*(0.12/5.0),
                                 fontWeight: FontWeight.bold,

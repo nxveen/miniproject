@@ -17,8 +17,7 @@ class Fuel extends StatelessWidget {
     ),
     ),
     ),
-        FlatButton(onPressed: () {Navigator.push(context,
-          MaterialPageRoute(builder:(context) => Facility(text: '')),);},
+        FlatButton(onPressed: () {},
           child: Padding(
             padding: EdgeInsets.fromLTRB(h*0.007, h*0.03,0 ,0),
             child: Icon(
