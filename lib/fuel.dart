@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:miniproject/facil.dart';
 import 'package:miniproject/fuel2.dart';
 import 'package:miniproject/repair.dart';
 class Fuel extends StatelessWidget {
+  var petrol_pump='';
+  var mech1='';
+  var p3='';
+  var mech2='';
+  var p4='';
+  Fuel({Key? key,required this.petrol_pump,required this.mech1,required this.p3,required this.mech2,required this.p4}
+      ) : super(key: key);
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
@@ -10,13 +16,14 @@ class Fuel extends StatelessWidget {
     return Scaffold(
       body: Stack(children: [
       Container(
-      decoration: BoxDecoration(
+      decoration:const BoxDecoration(
       image: DecorationImage(
           image: AssetImage('assets/fuel.jpg'),
       fit: BoxFit.fill,
     ),
     ),
     ),
+<<<<<<< HEAD
         FlatButton(onPressed: () {},
           child: Padding(
             padding: EdgeInsets.fromLTRB(h*0.007, h*0.03,0 ,0),
@@ -27,25 +34,19 @@ class Fuel extends StatelessWidget {
             ),
           ),
         ),
+=======
+
+>>>>>>> 4fd2db2ca56b11ba9da8a3ad36bb2f8f29162474
         Column(
           children: [
             SizedBox(height: h*0.45),
             Center(
-              child: FlatButton(onPressed: () {Navigator.push(context,
-                MaterialPageRoute(builder:(context) => Fuel2()),);},
+              child: TextButton(onPressed: () {Navigator.push(context,
+                MaterialPageRoute(builder:(context) => Fuel2(petrol_pump: petrol_pump,mech1: mech1,p3: p3,mech2: mech2,p4: p4)),);},
                 child: Container(
                     height: h*0.076,
                     width: w*0.85,
-                    decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topRight,
-                          end: Alignment.bottomLeft,
-                          colors: [
-                            Color.fromRGBO(191, 90, 242, 1),
-                            Color.fromRGBO(191, 90, 242, 1),
-
-                          ],
-                        ),
+                    decoration:const BoxDecoration(color: Color.fromRGBO(191, 90, 242, 1),
                         borderRadius: BorderRadius.all(Radius.circular(10.0))
                     ),
                     child: Center(
@@ -65,12 +66,17 @@ class Fuel extends StatelessWidget {
             ),
             SizedBox(height: h*0.08),
             Center(
+<<<<<<< HEAD
               child: FlatButton(onPressed: () {Navigator.push(context,
                 MaterialPageRoute(builder:(context) => Repair()),);},
+=======
+              child: TextButton(onPressed: () {Navigator.push(context,
+                MaterialPageRoute(builder:(context) => Repair(petrol_pump: petrol_pump,mech1: mech1,p3: p3,mech2: mech2,p4: p4)),);},
+>>>>>>> 4fd2db2ca56b11ba9da8a3ad36bb2f8f29162474
                 child: Container(
                     height: h*0.076,
                     width: w*0.85,
-                    decoration: BoxDecoration(
+                    decoration:const BoxDecoration(
                         gradient: LinearGradient(
                           begin: Alignment.topRight,
                           end: Alignment.bottomLeft,
