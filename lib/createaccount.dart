@@ -1,15 +1,12 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:miniproject/login.dart';
 import 'package:miniproject/main.dart';
 import 'package:miniproject/resources/auth_methods.dart';
 import 'package:miniproject/utils/utils.dart';
-
 class Createaccount extends StatelessWidget {
-  TextEditingController c = new TextEditingController();
-  TextEditingController d = new TextEditingController();
-  TextEditingController e = new TextEditingController();
+  TextEditingController c =  TextEditingController();
+  TextEditingController d =  TextEditingController();
+  TextEditingController e =  TextEditingController();
   bool _isLoading = false;
   @override
   Widget build(BuildContext context) {
@@ -18,14 +15,14 @@ class Createaccount extends StatelessWidget {
     return Scaffold(
         body: Stack(children: [
           Container(
-            decoration: BoxDecoration(
+            decoration:const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/page2.jpg'),
                 fit: BoxFit.fill,
               ),
             ),
           ),
-          FlatButton(
+          TextButton(
             onPressed: () {
               Navigator.push(
                 context,
@@ -59,7 +56,7 @@ class Createaccount extends StatelessWidget {
                 width: w * .85,
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.white),
-                  gradient: LinearGradient(
+                  gradient:const LinearGradient(
                     colors: [Colors.transparent, Colors.transparent],
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(h * 0.016)),
@@ -70,8 +67,8 @@ class Createaccount extends StatelessWidget {
                     controller: c,
                     decoration: InputDecoration(
                       border: InputBorder.none,
-                      icon: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                      icon:const Padding(
+                        padding: EdgeInsets.all(8.0),
                         child: Icon(
                           Icons.person,
                           color: Colors.white,
@@ -96,7 +93,7 @@ class Createaccount extends StatelessWidget {
                 width: w * .85,
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.white),
-                  gradient: LinearGradient(
+                  gradient:const LinearGradient(
                     colors: [Colors.transparent, Colors.transparent],
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(h * 0.016)),
@@ -107,8 +104,8 @@ class Createaccount extends StatelessWidget {
                     controller: e,
                     decoration: InputDecoration(
                       border: InputBorder.none,
-                      icon: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                      icon: const Padding(
+                        padding: EdgeInsets.all(8.0),
                         child: Icon(
                           Icons.email_outlined,
                           color: Colors.white,
@@ -133,7 +130,7 @@ class Createaccount extends StatelessWidget {
                 width: w * .85,
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.white),
-                  gradient: LinearGradient(
+                  gradient:const LinearGradient(
                     colors: [Colors.transparent, Colors.transparent],
                   ),
                   borderRadius: BorderRadius.all(Radius.circular(h * 0.016)),
@@ -145,8 +142,8 @@ class Createaccount extends StatelessWidget {
                     obscureText: true,
                     decoration: InputDecoration(
                       border: InputBorder.none,
-                      icon: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                      icon:const Padding(
+                        padding: EdgeInsets.all(8.0),
                         child: Icon(
                           Icons.lock_outline_rounded,
                           color: Colors.white,
@@ -166,30 +163,26 @@ class Createaccount extends StatelessWidget {
             ),
             SizedBox(height: h * 0.03),
             Center(
-              child: FlatButton(
+              child: TextButton(
                 onPressed: () async {
                   String res = await AuthMethods().signUpUser(
                     Username: c.text,
                     Email: e.text,
                     Password: d.text,
                   );
-
                   print(res);
                   if (res != 'success') {
                     showSnackBar(res, context);
                   } else {
                     //
                   }
-
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Login()),
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => Login()),
                   );
                 },
                 child: Container(
                     height: h * 0.076,
                     width: w * 0.85,
-                    decoration: BoxDecoration(
+                    decoration:const BoxDecoration(
                         gradient: LinearGradient(
                           begin: Alignment.topRight,
                           end: Alignment.bottomLeft,

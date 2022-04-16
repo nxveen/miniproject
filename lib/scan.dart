@@ -6,18 +6,13 @@ import 'package:miniproject/facil.dart';
 import 'package:flutter/foundation.dart';
 class QRViewExample extends StatefulWidget {
   const QRViewExample({Key? key}) : super(key: key);
-
   @override
   State<StatefulWidget> createState() => _QRViewExampleState();
 }
-
 class _QRViewExampleState extends State<QRViewExample> {
   Barcode? result;
   QRViewController? controller;
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
-
-  // In order to get hot reload to work we need to pause the camera if the platform
-  // is android, or resume the camera if the platform is iOS.
   @override
   void reassemble() {
     super.reassemble();
@@ -26,9 +21,9 @@ class _QRViewExampleState extends State<QRViewExample> {
     }
     controller!.resumeCamera();
   }
-
   @override
   Widget build(BuildContext context) {
+    double h = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Column(
         children: <Widget>[
@@ -44,18 +39,29 @@ class _QRViewExampleState extends State<QRViewExample> {
 
                     TextButton(onPressed: () {Navigator.push(context,
                       MaterialPageRoute(builder:(context) => Facility(text: result)),);},
-                      child: const Text('Continue'),
+                      child:  Text('Continue',
+                        style: TextStyle(
+                          fontSize: h * (0.12 / 5.0),
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: h * (0.1 / 60.0),
+                          color: Colors.blueAccent,
+                          fontFamily: 'Poppins',),),
                     )
-
-
                   else
                     TextButton(onPressed: () {Navigator.push(context,
-                      MaterialPageRoute(builder:(context) => Facility(text: result)),);},child: const Text('Scan a code')),
+                      MaterialPageRoute(builder:(context) => Facility(text: result)),);},child:  Text('Scan a code',
+                      style: TextStyle(
+                        fontSize: h * (0.12 / 5.0),
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: h * (0.1 / 60.0),
+                        color: Colors.blueAccent,
+                        fontFamily: 'Poppins',),)),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Container(
+                        color:const Color.fromRGBO(77, 0, 237, 1),
                         margin: const EdgeInsets.all(8),
                         child: ElevatedButton(
                             onPressed: () async {
@@ -65,11 +71,18 @@ class _QRViewExampleState extends State<QRViewExample> {
                             child: FutureBuilder(
                               future: controller?.getFlashStatus(),
                               builder: (context, snapshot) {
-                                return Text('Flash: ${snapshot.data}');
+                                return Text('Flash: ${snapshot.data}',
+                                    style: TextStyle(
+                                    fontSize: h * (0.12 / 5.0),
+                                fontWeight: FontWeight.bold,
+                                letterSpacing: h * (0.1 / 60.0),
+                                color: Colors.white,
+                                fontFamily: 'Poppins',));
                               },
                             )),
                       ),
                       Container(
+                        color:const Color.fromRGBO(77, 0, 237, 1),
                         margin: const EdgeInsets.all(8),
                         child: ElevatedButton(
                             onPressed: () async {
@@ -81,7 +94,13 @@ class _QRViewExampleState extends State<QRViewExample> {
                               builder: (context, snapshot) {
                                 if (snapshot.data != null) {
                                   return Text(
-                                      'Camera facing ${describeEnum(snapshot.data!)}');
+                                      'Camera facing ${describeEnum(snapshot.data!)}',
+                                      style: TextStyle(
+                                        fontSize: h * (0.12 / 5.0),
+                                        fontWeight: FontWeight.bold,
+                                        letterSpacing: h * (0.1 / 60.0),
+                                        color: Colors.white,
+                                        fontFamily: 'Poppins',));
                                 } else {
                                   return const Text('loading');
                                 }
@@ -95,23 +114,36 @@ class _QRViewExampleState extends State<QRViewExample> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Container(
+                        color:const Color.fromRGBO(77, 0, 237, 1),
                         margin: const EdgeInsets.all(8),
                         child: ElevatedButton(
                           onPressed: () async {
                             await controller?.pauseCamera();
                           },
-                          child: const Text('pause',
-                              style: TextStyle(fontSize: 20)),
+                          child:  Text('Pause',
+                                style: TextStyle(
+                                fontSize: h * (0.12 / 5.0),
+                                fontWeight: FontWeight.bold,
+                                letterSpacing: h * (0.1 / 60.0),
+                                  color: Colors.white,
+                                    fontFamily: 'Poppins',)
+                              ),
                         ),
                       ),
                       Container(
+                        color:const Color.fromRGBO(77, 0, 237, 1),
                         margin: const EdgeInsets.all(8),
                         child: ElevatedButton(
                           onPressed: () async {
                             await controller?.resumeCamera();
                           },
-                          child: const Text('resume',
-                              style: TextStyle(fontSize: 20)),
+                          child:  Text('Resume',
+                              style: TextStyle(
+                              fontSize: h * (0.12 / 5.0),
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: h * (0.1 / 60.0),
+                              color: Colors.white,
+                              fontFamily: 'Poppins',),)
                         ),
                       )
                     ],

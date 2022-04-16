@@ -3,7 +3,6 @@ import 'package:miniproject/bikaroo.dart';
 import 'package:miniproject/login.dart';
 import 'package:miniproject/fuel.dart';
 import 'package:miniproject/jin.dart';
-import 'dart:convert';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 class Facility extends StatelessWidget {
   final Barcode? text;
@@ -12,33 +11,48 @@ class Facility extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var id='';
-    var petrol_pumb='';
+    var petrol_pump='';
+    var  auto1='';
+    var p1='';
+    var  auto2='';
+    var p2='';
+    var  mech1='';
+    var p3='';
+    var  mech2='';
+    var p4='';
     String? Data='';
     if(text != null) {
       Data = text!.code;
       if(Data!=null) {
         var value_list = Data.split(",");
         id = value_list[0].split("=")[1];
-        petrol_pumb = value_list[1].split("=")[1];
+        petrol_pump = value_list[1].split("=")[1];
+        auto1 = value_list[2].split("=")[1];
+        p1 = value_list[3].split("=")[1];
+        auto2 = value_list[4].split("=")[1];
+        p2 = value_list[5].split("=")[1];
+        mech1 = value_list[6].split("=")[1];
+        p3 = value_list[7].split("=")[1];
+        mech2 = value_list[8].split("=")[1];
+        p4 = value_list[9].split("=")[1];
       }
     }
     else{
       Data = 'abc';
       id='';
     }
-    double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     return Scaffold(
         body: Stack(children: [
           Container(
-            decoration: BoxDecoration(
+            decoration:const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/page3.jpg'),
                 fit: BoxFit.fill,
               ),
             ),
           ),
-          FlatButton(onPressed: () {Navigator.push(context,
+          TextButton(onPressed: () {Navigator.push(context,
             MaterialPageRoute(builder:(context) => Login()),);},
             child: Padding(
               padding: EdgeInsets.fromLTRB(h*0.007, h*0.03,0 ,0),
@@ -53,14 +67,14 @@ class Facility extends StatelessWidget {
             children: [
               SizedBox(height: h*0.11),
               Center(
-                child: FlatButton(
+                child: TextButton(
                   onPressed: () {Navigator.push(context,
                     MaterialPageRoute(builder:(context) => FavoriteWidget(id: id)),);},
                   child:Column(
                     children: [
                       Image.asset('assets/img1.jpg'),
 
-                      Text('BIKAROO $id',
+                      Text('BIKAROO ',
                             style: TextStyle(
                               fontSize: h*(0.12/5.0),
                               fontWeight: FontWeight.bold,
@@ -75,9 +89,9 @@ class Facility extends StatelessWidget {
               ),
               SizedBox(height: h*0.11),
               Center(
-                child: FlatButton(
+                child: TextButton(
                     onPressed: () {Navigator.push(context,
-                      MaterialPageRoute(builder:(context) => Fuel()),);},
+                      MaterialPageRoute(builder:(context) => Fuel(petrol_pump: petrol_pump,mech1: mech1,p3: p3,mech2: mech2,p4: p4)),);},
                     child:Column(
                         children: [
                           Image.asset('assets/img2.jpg'),
@@ -96,9 +110,9 @@ class Facility extends StatelessWidget {
               ),
               SizedBox(height: h*0.12),
               Center(
-                child: FlatButton(
+                child: TextButton(
                     onPressed: () {Navigator.push(context,
-                      MaterialPageRoute(builder:(context) => Jin()),);},
+                      MaterialPageRoute(builder:(context) => Jin(auto1: auto1,p1: p1,auto2: auto2,p2: p2)),);},
                     child:Column(
                         children: [
                           Image.asset('assets/vector.png'),
@@ -115,8 +129,6 @@ class Facility extends StatelessWidget {
                     )
                 ),
               ),
-
-
             ]
           )
         ]

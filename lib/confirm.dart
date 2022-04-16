@@ -22,14 +22,14 @@ class Confirm extends StatelessWidget {
     return Scaffold(
         body: Stack(children: [
           Container(
-            decoration: BoxDecoration(
+            decoration:const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/bikaroo1.jpg'),
                 fit: BoxFit.fill,
               ),
             ),
           ),
-          FlatButton(onPressed: () {
+          TextButton(onPressed: () {
             Navigator.push(context,
               MaterialPageRoute(builder: (context) => FavoriteWidget(id: id)),);
           },
@@ -44,34 +44,15 @@ class Confirm extends StatelessWidget {
           ),
           Column(
               children: [
-
                 SizedBox(height: h*0.85),
                 Container(height: h*0.15,width: w*1,
-                    decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topRight,
-                          end: Alignment.bottomLeft,
-                          colors: [
-                            Color.fromRGBO(139, 39, 222, 0.5),
-                            Color.fromRGBO(139, 39, 222, 0.5),
-
-                          ],
-                        ),
+                    decoration:const BoxDecoration(color: Color.fromRGBO(139, 39, 222, 0.5),
                         borderRadius: BorderRadius.all(Radius.circular(20.0))
                     ),
                     child: Center(
-
-                            child:FlatButton(onPressed: () {},
+                            child:TextButton(onPressed: () {},
                               child: Container(height: h*0.05,width: w*0.3,
-                                  decoration: BoxDecoration(
-                                      gradient: LinearGradient(
-                                        begin: Alignment.topRight,
-                                        end: Alignment.bottomLeft,
-                                        colors: [
-                                          Color.fromRGBO(56, 27, 97, 1),
-                                          Color.fromRGBO(56, 27, 97, 1),
-                                        ],
-                                      ),
+                                  decoration:const BoxDecoration(color: Color.fromRGBO(56, 27, 97, 1),
                                       borderRadius: BorderRadius.all(Radius.circular(20.0))
                                   ),
                                   child: Center(
@@ -86,8 +67,6 @@ class Confirm extends StatelessWidget {
                                   )
                               ),
                             ),
-
-
                     )
                 )
               ]
@@ -98,15 +77,10 @@ class Confirm extends StatelessWidget {
                 Row(
                     children:[
                       SizedBox(width: w*0.86),
-
                       IconButton(onPressed: () {},
-                        icon: Icon(Icons.location_pin),
-
+                        icon:const Icon(Icons.location_pin),
                         iconSize: h*0.06,
-                        color:  (isScanned4?Colors.green:(_isPressed4
-                            ?  Colors.red
-                            : Colors.black)),
-
+                        color:  (isScanned4?Colors.green:(_isPressed4 ?  Colors.red : Colors.black)),
                       )
                     ]
                 ),
@@ -115,7 +89,7 @@ class Confirm extends StatelessWidget {
                   children: [
                     SizedBox(width:w*0.003),
                     IconButton(onPressed: () {},
-                      icon: Icon(Icons.location_pin),
+                      icon:const Icon(Icons.location_pin),
                       iconSize: h*0.06,
                       color:  (isScanned1?Colors.green:(_isPressed1
                           ?  Colors.red
@@ -128,7 +102,7 @@ class Confirm extends StatelessWidget {
                   children: [
                     SizedBox(width:w*0.3),
                     IconButton(onPressed: () {},
-                      icon: Icon(Icons.location_pin),
+                      icon:const Icon(Icons.location_pin),
                       iconSize: h*0.06,
                       color:  (isScanned2?Colors.green:(_isPressed2
                           ?  Colors.red
@@ -141,7 +115,7 @@ class Confirm extends StatelessWidget {
                   children: [
                     SizedBox(width:w*0.7),
                     IconButton(onPressed: () {},
-                      icon: Icon(Icons.location_pin),
+                      icon:const Icon(Icons.location_pin),
                       iconSize: h*0.06,
                       color:  (isScanned3?Colors.green:(_isPressed3
                           ?  Colors.red
@@ -151,20 +125,17 @@ class Confirm extends StatelessWidget {
                 ),
               ]
           ),
-
           Column(
             children: [
               SizedBox(height:h*0.1),
               Center(
-                child: Container(
-                  child:Text('YOU ARE NOW A HOST',
-                  style: TextStyle(
-                  fontSize: h*(0.16/5.0),
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: h*(0.1/60.0),
-                  color: Colors.black,
-                  fontFamily: 'Poppins-Medium',)
-                  )
+                child: Text('YOU ARE NOW A HOST',
+                style: TextStyle(
+                fontSize: h*(0.16/5.0),
+                fontWeight: FontWeight.bold,
+                letterSpacing: h*(0.1/60.0),
+                color: Colors.black,
+                fontFamily: 'Poppins-Medium',)
                 ),
               ),
             ],

@@ -11,7 +11,7 @@ void main() async {
 
 class Mini extends StatelessWidget {
   Widget build(BuildContext context) {
-    return new MaterialApp(home: Home());
+    return MaterialApp(home: Home());
   }
 }
 
@@ -23,7 +23,7 @@ class Home extends StatelessWidget {
     return Scaffold(
         body: Stack(children: [
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/page1.jpg'),
                 fit: BoxFit.fill,
@@ -42,7 +42,7 @@ class Home extends StatelessWidget {
           Column(children: [
             SizedBox(height: h * 0.66),
             Center(
-              child: FlatButton(
+              child: TextButton(
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -52,7 +52,7 @@ class Home extends StatelessWidget {
                 child: Container(
                     height: h * 0.08,
                     width: w * 0.6,
-                    decoration: BoxDecoration(
+                    decoration:const BoxDecoration(
                         gradient: LinearGradient(
                           begin: Alignment.topRight,
                           end: Alignment.bottomLeft,
@@ -65,7 +65,7 @@ class Home extends StatelessWidget {
                     child: Center(
                       child: Text('Create Account',
                           style: TextStyle(
-                            fontSize: h * (0.13 / 5.0),
+                            fontSize: h * (0.12 / 5.0),
                             fontWeight: FontWeight.bold,
                             letterSpacing: h * (0.1 / 60.0),
                             color: Colors.white,
@@ -76,7 +76,7 @@ class Home extends StatelessWidget {
             ),
             SizedBox(height: h * 0.07),
             Center(
-              child: FlatButton(
+              child: TextButton(
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -86,7 +86,7 @@ class Home extends StatelessWidget {
                 child: Container(
                     height: h * 0.08,
                     width: w * 0.6,
-                    decoration: BoxDecoration(
+                    decoration:const BoxDecoration(
                         gradient: LinearGradient(
                           begin: Alignment.topRight,
                           end: Alignment.bottomLeft,
@@ -99,7 +99,7 @@ class Home extends StatelessWidget {
                     child: Center(
                       child: Text('Login',
                           style: TextStyle(
-                            fontSize: h * (0.13 / 5.0),
+                            fontSize: h * (0.12 / 5.0),
                             fontWeight: FontWeight.bold,
                             letterSpacing: h * (0.1 / 60.0),
                             color: Colors.white,
