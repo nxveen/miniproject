@@ -103,7 +103,7 @@ class Login extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: h * 0.02),
+              SizedBox(height: h * 0.01),
               Row(children: [
                 SizedBox(width: w * 0.51),
                 TextButton(
@@ -118,7 +118,7 @@ class Login extends StatelessWidget {
                       ),
                     )),
               ]),
-              SizedBox(height: h * 0.018),
+              SizedBox(height: h * 0.006),
               Center(
                 child: TextButton(
                   onPressed: () async {
@@ -128,7 +128,6 @@ class Login extends StatelessWidget {
                     } else {
                       showSnackBar(res, context);
                     }
-
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => const QRViewExample()),
@@ -159,8 +158,6 @@ class Login extends StatelessWidget {
                       )),
                 ),
               ),
-
-
                 Center(
                   child: TextButton(
                       onPressed: () {},
@@ -174,7 +171,7 @@ class Login extends StatelessWidget {
                         ),
                       )),
                 ),
-              SizedBox(height: h * 0.008),
+              SizedBox(height: h * 0.005),
               Row(children: [
                 SizedBox(width: w * 0.455),
                 Text(
@@ -187,7 +184,7 @@ class Login extends StatelessWidget {
                   ),
                 ),
               ]),
-              SizedBox(height: h * 0.008),
+              SizedBox(height: h * 0.005),
               Row(children: [
                 SizedBox(width: w * 0.35),
                 IconButton(
