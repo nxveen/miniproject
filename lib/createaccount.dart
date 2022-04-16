@@ -177,8 +177,6 @@ class Createaccount extends StatelessWidget {
               print(res);
               if (res != 'success') {
                 showSnackBar(res, context);
-              } else {
-                //
               }
 
               Navigator.push(

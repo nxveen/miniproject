@@ -100,6 +100,35 @@ class Fuel2 extends StatelessWidget {
                 ),
               ),
             ]
+          ),
+          Column(
+              children: [
+                SizedBox(height: h*0.35),
+                Row(
+                    children: [
+                      SizedBox(width: w*0.07),
+                      Text('118 . 324',
+                          style: TextStyle(
+                            fontSize: h*(0.14/5.0),
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: h*(0.05/60.0),
+                            color: Colors.green,
+                            fontFamily: 'DSEG7Classic',
+                          )
+                      ),
+                      SizedBox(width: w*0.22),
+                      Text('101 . 112',
+                          style: TextStyle(
+                            fontSize: h*(0.14/5.0),
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: h*(0.05/60.0),
+                            color: Colors.green,
+                            fontFamily: 'DSEG7Classic',
+                          )
+                      ),
+                    ]
+                )
+              ]
           )
         ]
         )

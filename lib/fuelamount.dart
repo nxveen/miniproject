@@ -3,14 +3,8 @@ import 'package:miniproject/fuel2.dart';
 class Fuelamount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    double w = MediaQuery
-        .of(context)
-        .size
-        .width;
-    double h = MediaQuery
-        .of(context)
-        .size
-        .height;
+    double w = MediaQuery.of(context).size.width;
+    double h = MediaQuery.of(context).size.height;
     return Scaffold(
         body: Stack(children: [
           Container(
@@ -47,6 +41,7 @@ class Fuelamount extends StatelessWidget {
                   ),
                   child: Center(
                     child: TextField(
+                      style: TextStyle(color: Colors.white),
                       decoration:  InputDecoration(
                         border: InputBorder.none,
 

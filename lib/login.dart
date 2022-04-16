@@ -3,6 +3,7 @@ import 'package:miniproject/facil.dart';
 import 'package:miniproject/main.dart';
 import 'package:miniproject/resources/auth_methods.dart';
 import 'package:miniproject/utils/utils.dart';
+import 'package:miniproject/scan.dart';
 
 class Login extends StatelessWidget {
   TextEditingController d = new TextEditingController();
@@ -126,14 +127,13 @@ class Login extends StatelessWidget {
                 String res = await AuthMethods()
                     .loginUser(Email: e.text, Password: d.text);
                 if (res == 'success') {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => QRViewExample()),
+                  );
                 } else {
                   showSnackBar(res, context);
                 }
-
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Facility()),
-                );
               },
               child: Container(
                   height: h * 0.08,
