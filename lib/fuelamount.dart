@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:miniproject/fuel2.dart';
+import 'package:miniproject/finalamt.dart';
 class Fuelamount extends StatelessWidget {
+  TextEditingController c=new TextEditingController();
   var petrol_pump='';
   var mech1='';
   var p3='';
@@ -48,6 +50,8 @@ class Fuelamount extends StatelessWidget {
                   ),
                   child: Center(
                     child: TextField(
+                      controller: c,
+                      keyboardType: TextInputType.number,
                       style:const TextStyle(color: Colors.white),
                       decoration:  InputDecoration(
                         border: InputBorder.none,
@@ -70,6 +74,34 @@ class Fuelamount extends StatelessWidget {
                   ),
                 ),
               ),
+              SizedBox(height:h*0.15),
+              Text('Nearest Petrol Pump: $petrol_pump',style: TextStyle(
+                fontSize: h*(0.1/5.0),
+                fontWeight: FontWeight.bold,
+                letterSpacing: h*(0.1/60.0),
+                color: Colors.white,
+                fontFamily: 'Poppins-Medium',),),
+              SizedBox(height:h*0.1),
+              Center(
+                child:TextButton(onPressed: () {int x=int.parse(c.text);Navigator.push(context,
+                  MaterialPageRoute(builder:(context) => Finalamt(petrol_pump: petrol_pump,mech1: mech1,p3: p3,mech2: mech2,p4: p4,amt: x)),);},
+                  child: Container(height: h*0.08,width: w*0.5,
+                      decoration:const BoxDecoration(color: Color.fromRGBO(191, 90, 242, 1),
+                          borderRadius: BorderRadius.all(Radius.circular(20.0))
+                      ),
+                      child: Center(
+                        child: Text('CONFIRM',
+                          style: TextStyle(
+                            fontSize: h*(0.12/5.0),
+                            fontWeight: FontWeight.w400,
+                            letterSpacing: h*(0.1/60.0),
+                            color: Colors.white,
+                            fontFamily: 'Poppins-Medium',),
+                        ),
+                      )
+                  ),
+                ),
+              )
             ]
           )
         ]

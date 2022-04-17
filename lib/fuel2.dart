@@ -88,6 +88,13 @@ class Fuel2 extends StatelessWidget {
                   ),
                 ),
               ),
+              SizedBox(height:h*0.08),
+              Text('Nearest Petrol Pump: $petrol_pump',style: TextStyle(
+                fontSize: h*(0.1/5.0),
+                fontWeight: FontWeight.bold,
+                letterSpacing: h*(0.1/60.0),
+                color: Colors.white,
+                fontFamily: 'Poppins-Medium',),)
             ]
           ),
           Column(

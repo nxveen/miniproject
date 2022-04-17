@@ -41,14 +41,18 @@ class _Bikaroo extends State<FavoriteWidget> {
         Column(
           children: [
             Center(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text('Scanned: $txt',style: TextStyle(
-                  fontSize: h*(0.12/5.0),
-                  fontWeight: FontWeight.w400,
-                  letterSpacing: h*(0.1/60.0),
-                  color: Colors.black,
-                  fontFamily: 'Poppins-Medium',),),
+              child: Container(height: h*0.15,width:w*1,color:Color.fromRGBO(139, 39, 222, 0.5),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Center(
+                    child: Text('Scanned: $txt',style: TextStyle(
+                      fontSize: h*(0.12/5.0),
+                      fontWeight: FontWeight.w400,
+                      letterSpacing: h*(0.1/60.0),
+                      color: Colors.black,
+                      fontFamily: 'Poppins-Medium',),),
+                  ),
+                ),
               ),
             ),
           ],
