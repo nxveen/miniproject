@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:miniproject/fuel2.dart';
-class Finalamt extends StatelessWidget {
+class Finalamtt extends StatelessWidget {
   var petrol_pump = '';
   var mech1 = '';
   var p3 = '';
   var mech2 = '';
   var p4 = '';
-  final int amt;
-  Finalamt(
-      {Key? key, required this.petrol_pump, required this.mech1, required this.p3, required this.mech2, required this.p4,required this.amt})
+  Finalamtt(
+      {Key? key, required this.petrol_pump, required this.mech1, required this.p3, required this.mech2, required this.p4})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    int d=0;
+    int amt=0;
     int finalamt=(amt+(d/40.0)*116.0) as int;
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
@@ -40,7 +41,7 @@ class Finalamt extends StatelessWidget {
                     color: Colors.white,
                   ),
                   child: Center(
-                    child: Text('Total Amount: ')
+                      child: Text('Total Amount: ')
                   ),
                 ),
               ),
