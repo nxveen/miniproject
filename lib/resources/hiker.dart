@@ -100,7 +100,7 @@ print("locations $start_loc $end_loc");
       }
     }
 
-    print("Data fetched from database");
+    print("Data fetched from database, depData: $depData ,arrData: $arrData");
 
     for (var i = 0; i < possible_start_locs.length; i++) {
       print("Before first null check $depData ${possible_start_locs[i]} ${depData[possible_start_locs[i].toString()]}");

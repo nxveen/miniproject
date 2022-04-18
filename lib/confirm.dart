@@ -34,6 +34,9 @@ class Confirm extends StatelessWidget {
   }
   @override
   Widget build(BuildContext context) {
+    var txt = (id == '1' || id == '2'
+        ? (id == '1' ? 'Cusat Metro Station' : 'Cusat ADM')
+        : (id == '3' ? 'Cusat Amenity Centre' : 'School of Engineering'));
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -159,15 +162,17 @@ class Confirm extends StatelessWidget {
       Column(
         children: [
           SizedBox(height: h * 0.1),
-          Center(
-            child: Text('YOU ARE NOW A HOST',
-                style: TextStyle(
-                  fontSize: h * (0.16 / 5.0),
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: h * (0.1 / 60.0),
-                  color: Colors.black,
-                  fontFamily: 'Poppins-Medium',
-                )),
+          Container(color: Color.fromRGBO(139, 39, 222, 0.5),height:h*0.05,width:w*1,
+            child: Center(
+              child: Text('YOU ARE NOW A HOST FROM $txt',
+                  style: TextStyle(
+                    fontSize: h * (0.1/ 5.0),
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: h * (0.1 / 60.0),
+                    color: Colors.black,
+                    fontFamily: 'Poppins-Medium',
+                  )),
+            ),
           ),
         ],
       )

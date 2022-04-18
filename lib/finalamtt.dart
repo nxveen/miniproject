@@ -6,15 +6,16 @@ class Finalamtt extends StatelessWidget {
   var p3 = '';
   var mech2 = '';
   var p4 = '';
+  int d=0;
+  int amt=0;
   Finalamtt(
-      {Key? key, required this.petrol_pump, required this.mech1, required this.p3, required this.mech2, required this.p4})
+      {Key? key, required this.petrol_pump, required this.mech1, required this.p3, required this.mech2, required this.p4,required this.d,required this.amt})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    int d=0;
-    int amt=0;
-    int finalamt=(amt+(d/40.0)*116.0) as int;
+    double finalamt=((amt+(d/40.0)*116.0)+2.0) as double;
+    double dcharge=((d/40.0)*116.0+2.0);
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -41,10 +42,25 @@ class Finalamtt extends StatelessWidget {
                     color: Colors.white,
                   ),
                   child: Center(
-                      child: Text('Total Amount: ')
+                      child: Text('Total Amount: $finalamt  ',style:TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w300,
+                        fontSize: h*0.029,
+                        letterSpacing: 1.0,
+                      ),)
                   ),
                 ),
               ),
+              SizedBox(height:h*0.1),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text('Delivery Charge: $dcharge',style:TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w300,
+                  fontSize: h*0.018,
+                  letterSpacing: 1.0,
+                ),),
+              )
             ],
           ),
         ]

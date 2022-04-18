@@ -8,13 +8,14 @@ class Fuel extends StatelessWidget {
   var p3 = '';
   var mech2 = '';
   var p4 = '';
+  int d=0;
   Fuel(
       {Key? key,
       required this.petrol_pump,
       required this.mech1,
       required this.p3,
       required this.mech2,
-      required this.p4})
+      required this.p4,required this.d})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -43,7 +44,7 @@ class Fuel extends StatelessWidget {
                         mech1: mech1,
                         p3: p3,
                         mech2: mech2,
-                        p4: p4)),
+                        p4: p4,d: d)),
               );
             },
             child: Container(
@@ -76,7 +77,7 @@ class Fuel extends StatelessWidget {
                         mech1: mech1,
                         p3: p3,
                         mech2: mech2,
-                        p4: p4)),
+                        p4: p4,d: d)),
               );
             },
             child: Container(

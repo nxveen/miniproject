@@ -35,6 +35,9 @@ class Confirm2 extends StatelessWidget {
   }
   @override
   Widget build(BuildContext context) {
+    var txt = (id == '1' || id == '2'
+        ? (id == '1' ? 'Cusat Metro Station' : 'Cusat ADM')
+        : (id == '3' ? 'Cusat Amenity Centre' : 'School of Engineering'));
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -73,7 +76,9 @@ class Confirm2 extends StatelessWidget {
                 borderRadius: BorderRadius.all(Radius.circular(20.0))),
             child: Center(
               child: TextButton(
-                onPressed: () async {await HitchHiker().requestRide(start_loc: id,end_loc: id2,user_id: '1234');
+                onPressed: () async {
+                  result='';
+                  await HitchHiker().requestRide(start_loc: id,end_loc: id2,user_id: '1234');
                 result=await HitchHiker().searchHost(start_loc_str: id, end_loc_str: id2, user_id: '1234'); Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => Hiker(id: id, id2:id2,result:result)),
@@ -82,7 +87,7 @@ class Confirm2 extends StatelessWidget {
                     height: h * 0.05,
                     width: w * 0.3,
                     decoration: const BoxDecoration(
-                        color: Color.fromRGBO(139, 39, 222, 0.5),
+                        color: Color.fromRGBO(56, 27, 97, 1),
                         borderRadius: BorderRadius.all(Radius.circular(20.0))),
                     child: Center(
                       child: Text(
@@ -118,7 +123,7 @@ class Confirm2 extends StatelessWidget {
             SizedBox(width: w * 0.003),
             IconButton(
               onPressed: () {},
-              icon: const Icon(Icons.location_pin),
+              icon:Icon(Icons.location_pin),
               iconSize: h * 0.06,
               color: (isHost1?Colors.yellow:isScanned1
                   ? Colors.green
@@ -159,15 +164,17 @@ class Confirm2 extends StatelessWidget {
         children: [
           SizedBox(height: h * 0.1),
           Center(
-            child: Container(
-                child: Text('YOU ARE NOW A HITCH-HIKER',
-                    style: TextStyle(
-                      fontSize: h * (0.16 / 5.0),
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: h * (0.1 / 60.0),
-                      color: Colors.black,
-                      fontFamily: 'Poppins-Medium',
-                    ))),
+            child: Container(color: Color.fromRGBO(139, 39, 222, 0.5),height:h*0.05,width:w*1,
+                child: Center(
+                  child: Text('YOU ARE NOW A HITCH-HIKER AT $txt',
+                      style: TextStyle(
+                        fontSize: h * (0.1 / 5.0),
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: h * (0.1 / 60.0),
+                        color: Colors.black,
+                        fontFamily: 'Poppins-Medium',
+                      )),
+                )),
           ),
         ],
       )

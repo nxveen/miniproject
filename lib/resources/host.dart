@@ -77,7 +77,7 @@ class HostRider {
 
   Map<String, List> depData = {}, arrData = {};
   for (var i = 0; i < possible_start_locs.length; i++) {
-    var depsRef = await _hosts.doc(possible_start_locs[i].toString()).get();
+    var depsRef = await _hikers.doc(possible_start_locs[i].toString()).get();
     if (depsRef.exists) {
       depData[possible_start_locs[i].toString()] = depsRef.data()?["departures"];
     } else {
@@ -85,7 +85,7 @@ class HostRider {
     }
   }
   for (var i = 0; i < possible_end_locs.length; i++) {
-    var arrRef = await _hosts.doc(possible_end_locs[i].toString()).get();
+    var arrRef = await _hikers.doc(possible_end_locs[i].toString()).get();
     if (arrRef.exists) {
       arrData[possible_end_locs[i].toString()] = arrRef.data()?["arrivals"];
     } else {
@@ -93,21 +93,25 @@ class HostRider {
     }
   }
 
-  for (var i = 0; i < possible_start_locs.length; i++) {
-    if(depData[i]!=null) {
-      for (var j = 0; j < depData[i]!.length; j++) {
-        for (var k = 0; k < possible_end_locs.length; k++) {
-          if(arrData[k]!=null) {
-            for (var l = 0; l < arrData[k]!.length; l++) {
-              if (depData[i]![j] == arrData[k]![l]) {
-                return '$i';
+    for (var i = 0; i < possible_start_locs.length; i++) {
+      print("Before first null check $depData ${possible_start_locs[i]} ${depData[possible_start_locs[i].toString()]}");
+      if(depData[possible_start_locs[i].toString()]!=null){
+        print("Before second loop");
+        for (var j = 0; j < depData[possible_start_locs[i].toString()]!.length; j++) {
+          for (var k = 0; k < possible_end_locs.length; k++) {
+            print("Before second null check");
+            if (arrData[possible_end_locs[k].toString()] != null) {
+              for (var l = 0; l < arrData[possible_end_locs[k].toString()]!.length; l++) {
+                print('depData comp: ${depData[possible_start_locs[i].toString()]![j]}  ${arrData[possible_end_locs[k].toString()]![l]}');
+                if (depData[possible_start_locs[i].toString()]![j] == arrData[possible_end_locs[k].toString()]![l]) {
+                  return possible_start_locs[i].toString();
+                }
               }
             }
           }
         }
       }
     }
-  }
 
 
   return '0';

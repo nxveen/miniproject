@@ -34,6 +34,9 @@ class Host extends StatelessWidget {
   }
   @override
   Widget build(BuildContext context) {
+    var txt = (result == '1' || result == '2'
+        ? (result == '1' ? 'Cusat Metro Station' : 'Cusat ADM')
+        : (result == '3' ? 'Cusat Amenity Centre' : 'School of Engineering'));
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -123,15 +126,17 @@ class Host extends StatelessWidget {
             children: [
               SizedBox(height: h * 0.1),
               Center(
-                child: Container(
-                    child: Text(result!='0'?'You have a hiker on your route at $result':'No hikers on route',
-                        style: TextStyle(
-                          fontSize: h * (0.16 / 5.0),
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: h * (0.1 / 60.0),
-                          color: Colors.black,
-                          fontFamily: 'Poppins-Medium',
-                        ))),
+                child: Container(color: Color.fromRGBO(139, 39, 222, 0.5),height:h*0.05,width:w*1,
+                    child: Center(
+                      child: Text(result!='0'?'You have a hiker on your route at $txt':'No hikers on route',
+                          style: TextStyle(
+                            fontSize: h * (0.1 / 5.0),
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: h * (0.1 / 60.0),
+                            color: Colors.black,
+                            fontFamily: 'Poppins-Medium',
+                          )),
+                    )),
               ),
             ],
           ),
@@ -145,16 +150,16 @@ class Host extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(20.0))),
                 child: Center(
                   child: TextButton(
-                    onPressed: () async {await HostRider().endHostRider(start_loc: id,end_loc: id2,user_id: '123');},
+                    onPressed: () async {await HostRider().endHostRider(start_loc: id,end_loc: id2,user_id: '123');result='0';},
                     child: Container(
                         height: h * 0.05,
-                        width: w * 0.3,
+                        width: w * 0.8,
                         decoration: const BoxDecoration(
                             color: Color.fromRGBO(56, 27, 97, 1),
                             borderRadius: BorderRadius.all(Radius.circular(20.0))),
                         child: Center(
                           child: Text(
-                            'REACHED DESTINATION',
+                            'Picked Hitch-Hiker',
                             style: TextStyle(
                               fontSize: h * (0.12 / 5.0),
                               fontWeight: FontWeight.w400,

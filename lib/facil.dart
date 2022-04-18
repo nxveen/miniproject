@@ -10,6 +10,7 @@ class Facility extends StatelessWidget {
   Facility({Key? key, required this.text}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+
     var id = '1';
     var petrol_pump = '';
     var auto1 = '';
@@ -20,10 +21,14 @@ class Facility extends StatelessWidget {
     var p3 = '';
     var mech2 = '';
     var p4 = '';
+    var dist='';
     String? Data = '';
     if (text != null) {
       Data = text!.code;
-      if (Data != null) {
+    }
+    else
+        Data='id=4, petrol_pump=Bharat petroleum Kalamassery, auto1=Ravi, p1=9608529145, auto2=Ashin, p2=730688471,mech1=Midhun, p3=9446111248,mech2=Chan, p4=9633450201, dist=5';
+    if (Data != null) {
         var value_list = Data.split(",");
         id = value_list[0].split("=")[1];
         petrol_pump = value_list[1].split("=")[1];
@@ -35,11 +40,10 @@ class Facility extends StatelessWidget {
         p3 = value_list[7].split("=")[1];
         mech2 = value_list[8].split("=")[1];
         p4 = value_list[9].split("=")[1];
+        dist = value_list[10].split("=")[1];
       }
-    } else {
-      Data = 'abc';
-      id = '1';
-    }
+
+    int d=int.parse(dist);
     double h = MediaQuery.of(context).size.height;
     return Scaffold(
         body: Stack(children: [
@@ -102,7 +106,7 @@ class Facility extends StatelessWidget {
                           mech1: mech1,
                           p3: p3,
                           mech2: mech2,
-                          p4: p4)),
+                          p4: p4,d: d)),
                 );
               },
               child: Column(children: [

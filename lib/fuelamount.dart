@@ -10,13 +10,14 @@ class Fuelamount extends StatelessWidget {
   var p3 = '';
   var mech2 = '';
   var p4 = '';
+  int d=0;
   Fuelamount(
       {Key? key,
       required this.petrol_pump,
       required this.mech1,
       required this.p3,
       required this.mech2,
-      required this.p4})
+      required this.p4,required this.d})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -42,7 +43,7 @@ class Fuelamount extends StatelessWidget {
                     mech1: mech1,
                     p3: p3,
                     mech2: mech2,
-                    p4: p4)),
+                    p4: p4,d: d)),
           );
         },
         child: Padding(
@@ -105,7 +106,7 @@ class Fuelamount extends StatelessWidget {
               SizedBox(height:h*0.1),
               Center(
                 child:TextButton(onPressed: () {int x=int.parse(c.text);Navigator.push(context,
-                  MaterialPageRoute(builder:(context) => Finalamtt(petrol_pump: petrol_pump,mech1: mech1,p3: p3,mech2: mech2,p4: p4)),);},
+                  MaterialPageRoute(builder:(context) => Finalamtt(petrol_pump: petrol_pump,mech1: mech1,p3: p3,mech2: mech2,p4: p4,d: d,amt: x)),);},
                   child: Container(height: h*0.08,width: w*0.5,
                       decoration:const BoxDecoration(color: Color.fromRGBO(191, 90, 242, 1),
                           borderRadius: BorderRadius.all(Radius.circular(20.0))

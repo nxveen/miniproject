@@ -172,18 +172,7 @@ class Login extends StatelessWidget {
               )),
         ),
         SizedBox(height: h * 0.005),
-        Row(children: [
-          SizedBox(width: w * 0.455),
-          Text(
-            'OR',
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.w500,
-              fontSize: h * 0.026,
-              letterSpacing: 1.0,
-            ),
-          )
-        ]),
+
       ]),
       SizedBox(height: h * 0.018),
 

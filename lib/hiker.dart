@@ -35,6 +35,9 @@ class Hiker extends StatelessWidget {
   }
   @override
   Widget build(BuildContext context) {
+    var txt = (result == '1' || result == '2'
+        ? (result== '1' ? 'Cusat Metro Station' : 'Cusat ADM')
+        : (result== '3' ? 'Cusat Amenity Centre' : 'School of Engineering'));
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -124,15 +127,17 @@ class Hiker extends StatelessWidget {
             children: [
               SizedBox(height: h * 0.1),
               Center(
-                child: Container(
-                    child: Text(result!='0'?'You have a Host On the Way from $result':'You have no hosts on the way',
-                        style: TextStyle(
-                          fontSize: h * (0.16 / 5.0),
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: h * (0.1 / 60.0),
-                          color: Colors.black,
-                          fontFamily: 'Poppins-Medium',
-                        ))),
+                child: Container(color: Color.fromRGBO(139, 39, 222, 0.5),height:h*0.05,width:w*1,
+                    child: Center(
+                      child: Text(result!='0'?'You have a Host On the Way from $txt':'You have no hosts on the way',
+                          style: TextStyle(
+                            fontSize: h * (0.1 / 5.0),
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: h * (0.1 / 60.0),
+                            color: Colors.black,
+                            fontFamily: 'Poppins-Medium',
+                          )),
+                    )),
               ),
             ],
           ),
@@ -146,10 +151,10 @@ class Hiker extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(20.0))),
                 child: Center(
                   child: TextButton(
-                    onPressed: () async {await HitchHiker().removeRideRequest(start_loc: id,end_loc: id2,user_id: '123');},
+                    onPressed: () async {await HitchHiker().removeRideRequest(start_loc: id,end_loc: id2,user_id: '1234');result='0';},
                     child: Container(
                         height: h * 0.05,
-                        width: w * 0.3,
+                        width: w * 0.8,
                         decoration: const BoxDecoration(
                             color: Color.fromRGBO(56, 27, 97, 1),
                             borderRadius: BorderRadius.all(Radius.circular(20.0))),
